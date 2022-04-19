@@ -1,0 +1,76 @@
+#include<iostream>
+using namespace std;
+
+
+class Date
+{
+    public:
+    int day;
+    int month;
+    int year;
+
+    void start(int d,int m,int y)
+    {
+        day=d;
+        month=m;
+        year=y;
+        cout<<"today is:"<<day<<"/"<<month<<"/"<<year<<endl;
+    }
+
+    bool leapyear(int y)
+{
+    if(y%4==0)
+    {
+        if(y%100==0)
+        {
+            if(y%400==0)
+            return true;
+            else
+            return false;
+        }
+        else
+        return true;
+    }
+    else
+    return false;
+}
+    void add_day(void)
+    {
+        int a=31;
+        day=day+1;
+        switch (month) 
+        { 
+            case 2:  
+                a = (leapyear(year))?29:28; 
+                if(day>a)
+                {
+                    month=month+1;     
+                    day=1;
+                }
+                break; 
+            case 4: case 6: case 9: case 11:
+                a = 30;
+                if(day>a)
+                {
+                    month=month+1;
+                    day=1;
+                }
+                break;
+        }
+        if (month>12)
+        year=year+1;
+        cout<<"tomorrow is:"<<day<<"/"<<month<<"/"<<year<<endl;
+    };
+};
+
+
+
+int main()
+{
+    
+    Date date;
+    date.start(25,6,1978);
+    date.add_day();
+    
+}
+
