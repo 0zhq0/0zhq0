@@ -1,0 +1,70 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+
+void f1(int a[10])
+{
+    int la[10];
+    for(int i=0;i<10;i++)
+    {
+        la[i]=a[i];
+    }
+    int* p=new [10];
+    *p<<la[10];
+    for(int i=0;i<10;i++)
+    {
+        cout<<"p["<<i<<"]="<<p[i]<<endl;
+    }
+    delete p;
+}
+
+void f2(vector a[10])
+{
+    vector<int> lv[10];
+    vector<int> lv2[10];
+    for(int i=0;i<10;i++)
+    {
+        lv[i]=a[i];
+    }
+    lv2[10]<<lv[10];
+    for(int i=0;i<10;i++)
+    {
+        cout<<"lv2["<<i<<"]="<<lv2[i]<<endl;
+    }
+}
+int main()
+{
+    int ga[10];
+    for(int i=0;i<10;i++)
+    {
+        ga[i]=2^i;
+    }
+    f1(ga[10]);
+    int aa[10];
+    for(int i=0;i<10;i++)
+    {
+        if(i=0)
+        aa[i]=1;
+        else
+        aa[i]=(i+1)*aa[i-1];
+    }
+    f1(aa[10]);
+
+    vector<int> gv[10];
+    vector<int> vv[10];
+    for(int i=0;i<10;i++)
+    {
+        gv[i]=2^i;
+    }
+    f2(gv);
+    for(int i=0;i<10;i++)
+    {
+        if(i=0)
+        vv[i]=1;
+        else
+        vv[i]=(i+1)*vv[i-1];
+    }
+    f2(vv[10]);
+
+    return 0;
+}
