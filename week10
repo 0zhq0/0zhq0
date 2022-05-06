@@ -1,0 +1,65 @@
+#include<iostream>
+#include<vector>
+#include <string>
+using namespace std;
+
+template<typename T>
+struct S 
+{ 
+    void Number(T a)
+    {
+        this->val=a;
+        cout<<val<<endl;
+    }
+
+    void set(T a)
+    {
+        this->val=a;
+    }
+
+    S<T>::operator=(const T& a)
+    {
+        this->val=a;
+    }
+    private:
+    T val; 
+};
+
+template<typename T> 
+read_val(T& v)
+{
+    cin>>v;
+}
+
+template<typename T>
+T S::get()
+{
+    return val;
+}
+
+int main()
+{
+    S<int> a1;
+    S<char> a2;
+    S<double> a3;
+    S<string> a4;
+    vector<int> v;
+    v.push_back(1);
+    v.push_back(2);
+    v.push_back(3);
+    S<vector<int>> a5(v);
+    a1.Number(1);
+    a2.Number('a');
+    a3.Number(1.234);
+    a4.Number("abc");
+    for(int i=0;i<v.size();i++)
+    {
+        cout<<v[i]<<" ";
+    }
+
+    a1.get();
+    a2.get();
+    a3.get();
+    a4.get();
+    a5.get();
+}
