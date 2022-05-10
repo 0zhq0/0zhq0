@@ -158,6 +158,7 @@ try
 	
     cout << "Welcome to our simple calculator. Please enter expressions using floating-point numbers.\n";
     char c = 1; 
+    double val;
     while (c) {
         Token t = ts.get();
         if (t.kind == 'x') break; 
