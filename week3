@@ -46,7 +46,7 @@ Token_stream::Token_stream()
 // The putback() member function puts its argument back into the Token_stream's buffer:
 void Token_stream::putback(Token t)
 {
-    if (full) error("putback() into a full buffer");
+    if (full) throw("putback() into a full buffer");
     buffer = t;       // copy t to buffer
     full = true;      // buffer is now full
 }
@@ -79,7 +79,7 @@ Token Token_stream::get()
         return Token('8', val);   // let '8' represent "a number"
     }
     default:
-        error("Bad token");
+        throw("Bad token");
     }
 }
 
@@ -102,13 +102,13 @@ double primary()
     {
         double d = expression();
         t = ts.get();
-        if (t.kind != ')') error("')' expected");
+        if (t.kind != ')') throw("')' expected");
             return d;
     }
     case '8':            // we use '8' to represent a number
         return t.value;  // return the number's value
     default:
-        error("primary expected");
+        throw("primary expected");
     }
 }
 //------------------------------------------------------------------------------
@@ -125,7 +125,7 @@ double term()
         case '/':
         {
             double d = primary();
-            if (d == 0) error("divide by zero");
+            if (d == 0) throw("divide by zero");
             left /= d;
             t = ts.get();
             break;
@@ -178,7 +178,7 @@ try
     keep_window_open();
 }
 catch (exception& e) {
-    cerr << "error: " << e.what() << '\n';
+    cerr << "throw: " << e.what() << '\n';
     keep_window_open();
     return 1;
 }
