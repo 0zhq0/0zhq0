@@ -1,8 +1,9 @@
 /*Write three functions swap_v(int,int), swap_r(int&,int&), and swap_cr(const int&, const int&).
 Each should have the body 
-{ int temp; 
-temp = a, a=b; 
-b=temp; 
+{ 
+  int temp; 
+  temp = a, a=b; 
+  b=temp; 
 } 
 where a and b are the names of the arguments.
 Try calling each swap like this
@@ -21,6 +22,9 @@ swap_?(7.7,9.9);
 Which functions and calls compiled, and why? 
 After each swap that compiled, print the value of the arguments after the call to see if they were actually swapped.
 If you are surprised by a result, consult §8.6.*/
+
+#include<iosream>
+using namespace std;
 
 int swap_v(int a,int b)
 {
@@ -46,4 +50,26 @@ int swap_cr(const int& a, const int& b)
     a=b;
     b=temp;
     return 0;
+}
+
+int main()
+{
+    int x = 7;
+    int y =9;
+    const int cx = 7; 
+    const int cy = 9; 
+    double dx = 7.7; 
+    double dy = 9.9; 
+    swap_v(x,y);
+    swap_v(cx,cy);
+    swap_v(dx,dy);
+    swap_r(x,y);
+    swap_r(cx,cy);
+    swap_r(dx,dy);
+    swap_cr(x,y);
+    swap_cr(cx,cy);
+    swap_cr(dx,dy);
+    cout<<"int:x="<<x<<"y="<<y<<endl;
+    cout<<"const int:cx="<<cx<<"cy="<<cy<<endl;
+    cout<<"double:dx="<<dx<<"dy="<<dy<<endl;
 }
