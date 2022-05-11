@@ -52,6 +52,7 @@ int swap_cr(const int& a, const int& b)
     return 0;
 }
 
+
 int main()
 {
     int x = 7;
@@ -61,15 +62,21 @@ int main()
     double dx = 7.7; 
     double dy = 9.9; 
     swap_v(x,y);
+    cout<<"int swap_v:x="<<x<<"y="<<y<<endl;
     swap_v(cx,cy);
+    cout<<"const int swap_v:cx="<<cx<<"cy="<<cy<<endl;
     swap_v(dx,dy);
+    cout<<"double swap_v:dx="<<dx<<"dy="<<dy<<endl;
     swap_r(x,y);
+    cout<<"int swap_r:x="<<x<<"y="<<y<<endl;
     swap_r(cx,cy);
+    cout<<"const int swap_r:cx="<<cx<<"cy="<<cy<<endl;
     swap_r(dx,dy);
+    cout<<"double swap_r:dx="<<dx<<"dy="<<dy<<endl;
     swap_cr(x,y);
+    cout<<"int swap_cr:x="<<x<<"y="<<y<<endl;
     swap_cr(cx,cy);
+    cout<<"const int swap_cr:x="<<x<<"y="<<y<<endl;
     swap_cr(dx,dy);
-    cout<<"int:x="<<x<<"y="<<y<<endl;
-    cout<<"const int:cx="<<cx<<"cy="<<cy<<endl;
-    cout<<"double:dx="<<dx<<"dy="<<dy<<endl;
+    cout<<"double swap_cr:dx="<<dx<<"dy="<<dy<<endl;
 }
