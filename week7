@@ -19,7 +19,8 @@ class Point
     private:
     int x,y;
     public:
-    Point (x,y);
+    Point (x,y):x(x),y(y)
+               {return (x,y)};
 };
 
 int main()
